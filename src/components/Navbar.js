@@ -19,9 +19,9 @@ const Navbar = () => {
         The Crescendo
       </div>
 
-      {/* Navigation Links */}
+
       <div className="flex space-x-6 text-gray-700 relative">
-        {/* Courses Dropdown */}
+ 
         <div
           className="relative cursor-pointer hover:text-black"
           onMouseEnter={() => setDropdownOpen(true)}
@@ -30,7 +30,7 @@ const Navbar = () => {
           <span onClick={() => navigate("/courses")}>Courses ▾</span>
           {isDropdownOpen && (
             <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md p-4">
-              {/* Instruments Submenu */}
+              
               <div
                 className="font-semibold cursor-pointer hover:text-black"
                 onMouseEnter={() => setInstrumentsOpen(true)}
@@ -63,12 +63,12 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Other Navigation Links */}
+
         <Link to="/about" className="hover:text-black">About us</Link>
         <Link to="/contact" className="hover:text-black">Talk to us</Link>
       </div>
 
-      {/* Authentication Links */}
+
       <div className="flex space-x-4">
         {token ? (
           <button onClick={handleLogout} className="text-gray-700">Logout</button>
