@@ -44,7 +44,7 @@ const MusicEducation = () => {
             className="bg-white text-black p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform mt-4 mb-16"
           >
             <img
-              src={category.image} // Assuming each category has an 'image' property
+              src={category.image} 
               alt={category.title}
               className="w-full h-80 object-cover rounded-xl mb-4"
             />

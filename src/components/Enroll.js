@@ -5,7 +5,7 @@ const EnrollForm = () => {
   const { courseId } = useParams();
   const navigate = useNavigate();
 
-  // State to handle form input values
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,13 +14,13 @@ const EnrollForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Get token from localStorage
+
   const token = localStorage.getItem("authToken");
 
   // Check if user is authenticated
   useEffect(() => {
     if (!token) {
-      navigate("/login"); // Redirect to login if no auth token is present
+      navigate("/login"); 
     }
   }, [token, navigate]);
 
@@ -36,7 +36,7 @@ const EnrollForm = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Make API request to submit enrollment data
+  
     fetch(`http://localhost:3000/enroll/${courseId}`, {
       method: "POST",
       headers: {
@@ -53,7 +53,7 @@ const EnrollForm = () => {
       })
       .then((data) => {
         setLoading(false);
-        navigate(`/course/${courseId}`); // Navigate back to course details page
+        navigate(`/course/${courseId}`); 
       })
       .catch((error) => {
         setError(error.message);

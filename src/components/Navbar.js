@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [isInstrumentsOpen, setInstrumentsOpen] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -21,49 +19,7 @@ const Navbar = () => {
 
 
       <div className="flex space-x-6 text-gray-700 relative">
- 
-        <div
-          className="relative cursor-pointer hover:text-black"
-          onMouseEnter={() => setDropdownOpen(true)}
-          onMouseLeave={() => setDropdownOpen(false)}
-        >
-          <span onClick={() => navigate("/courses")}>Courses ▾</span>
-          {isDropdownOpen && (
-            <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md p-4">
-              
-              <div
-                className="font-semibold cursor-pointer hover:text-black"
-                onMouseEnter={() => setInstrumentsOpen(true)}
-                onMouseLeave={() => setInstrumentsOpen(false)}
-              >
-                Instruments ▸
-              </div>
-              {isInstrumentsOpen && (
-                <div className="absolute left-48 top-0 w-64 bg-white shadow-lg rounded-md p-4">
-                  <div className="font-semibold">Instrument Categories</div>
-                  <ul className="mt-2 space-y-2">
-                    {[
-                      "🎹 Piano",
-                      "🎸 Acoustic Guitar",
-                      "🎸 Electric Guitar",
-                      "🎻 Violin",
-                      "🎹 Electronic Keyboard",
-                      "🪕 Ukulele",
-                      "🎼 Flute",
-                      "🥁 Tabla",
-                    ].map((instrument, index) => (
-                      <li key={index} className="hover:text-black cursor-pointer">
-                        {instrument}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-
+        <Link to='/courses' className="hover:text-black font-bold">Courses</Link>
         <Link to="/about" className="hover:text-black">About us</Link>
         <Link to="/contact" className="hover:text-black">Talk to us</Link>
       </div>

@@ -11,6 +11,7 @@ import EnrollForm from "./components/Enroll";
 import BuyCourse from "./components/BuyCourse";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
+import MusicEducation from "./components/MusicEducation";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/instruments" element={<MusicEducation/>} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/course/:id" element={<CourseDetails />} />

@@ -1,7 +1,17 @@
 import { FaFacebook, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 export default function Footer() {
+
+  const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  }
+
   return (
+
     <footer className="bg-blue-300 text-black py-20 px-6 md:px-20">
       <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
         <div className="col-span-2 md:col-span-1">
@@ -10,17 +20,23 @@ export default function Footer() {
         <div>
           <h3 className="font-bold uppercase text-sm">Platform</h3>
           <ul className="mt-2 space-y-1">
-            <li>Courses</li>
-            <li>Email</li>
-            <li>Pricing</li>
+            <li onClick={() => navigate('/courses')} style={{cursor:"pointer"}}>Courses</li>
+            <li><a href="mailto:nitinkapoor117@gmail.com" style={{ textDecoration: "none", color: "inherit", cursor: "pointer" }}>Email</a></li>
+            <ul>
+              {token ? (
+                <li onClick={handleLogout} style={{cursor:"pointer"}}>Logout</li> 
+              ): (
+                <li onClick={() => navigate('/login')} style={{cursor:"pointer"}}>Login</li>
+              )}
+            </ul>
           </ul>
         </div>
         <div>
           <h3 className="font-bold uppercase text-sm">Features</h3>
-          <ul className="mt-2 space-y-1">
+          <ul className="mt-2 space-y-1" style={{cursor:"pointer"}}>
             <li>Online courses</li>
             <li>Webinars</li>
-            <li>Coaching</li>
+            <li onClick={() => navigate('/contact')}>Coaching</li>
             <li>Community</li>
             <li>Blogging</li>
             <li>Newsletters</li>
@@ -29,15 +45,15 @@ export default function Footer() {
         <div>
           <h3 className="font-bold uppercase text-sm">Resources</h3>
           <ul className="mt-2 space-y-1">
-            <li>About Us</li>
+            <li onClick={() => navigate('/about')}>About Us</li>
             <li>Staff</li>
           </ul>
         </div>
         <div>
           <h3 className="font-bold uppercase text-sm">Support</h3>
-          <ul className="mt-2 space-y-1">
-            <li>Contact us</li>
-            <li>Getting started</li>
+          <ul className="mt-2 space-y-1" style={{cursor:"pointer"}}>
+            <li onClick={() => navigate('/contact')}>Contact us</li>
+            <li onClick={() => navigate('/')}>Getting started</li>
           </ul>
         </div>
       </div>
