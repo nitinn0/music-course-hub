@@ -12,6 +12,7 @@ import BuyCourse from "./components/BuyCourse";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import MusicEducation from "./components/MusicEducation";
+import Instructors from "./components/Instructors";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/instruments" element={<MusicEducation/>} />
+        <Route path="/instructors" element={<Instructors />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/course/:id" element={<CourseDetails />} />

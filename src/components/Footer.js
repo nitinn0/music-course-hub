@@ -44,9 +44,9 @@ export default function Footer() {
         </div>
         <div>
           <h3 className="font-bold uppercase text-sm">Resources</h3>
-          <ul className="mt-2 space-y-1">
+          <ul className="mt-2 space-y-1" style={{cursor:"pointer"}}>
             <li onClick={() => navigate('/about')}>About Us</li>
-            <li>Staff</li>
+            <li onClick={() => navigate('/instructors')}>Staff</li>
           </ul>
         </div>
         <div>
